@@ -2,7 +2,7 @@ import { ControlProps } from "types";
 import styles from "./CircularCarousel.module.css";
 import { motion } from "framer-motion";
 import { useDebouncedCallback } from "use-debounce";
-// import { Icon } from "@storybook/design-system";
+import { Icon } from "@storybook/design-system";
 import classNames from "classnames";
 
 const Controls = ({
@@ -21,11 +21,11 @@ const Controls = ({
         <div className={classNames(styles.controls, "controls-wrapper")}>
             <motion.button
                 onClick={active ? () => debouncedHandleChange(handlePrev) : undefined}>
-                {/* <Icon icon="arrowleftalt" /> */}
+                <Icon icon="arrowleftalt" />
             </motion.button>
             <motion.button
                 onClick={active ? () => debouncedHandleChange(handleNext) : undefined}>
-                {/* <Icon icon="arrowrightalt" /> */}
+                <Icon icon="arrowrightalt" />
             </motion.button>
         </div>
     )
