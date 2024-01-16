@@ -1,0 +1,57 @@
+@value buttonPadding: 30px;
+
+.wrapper {
+  position: relative;
+}
+
+.carouselInner {
+  position: relative;
+  margin: 0px buttonPadding;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+}
+
+.slide :global img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.slide > * {
+  width: 100%;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.controls :global button {
+  padding: buttonPadding;
+  background-color: white;
+  box-shadow: 3px 3px 10px lightgrey;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .4s ease;
+  scale: 1;
+}
+
+.controls :global button:hover {
+   box-shadow: 3px 3px 15px lightgrey;
+   scale: 1.1;
+}

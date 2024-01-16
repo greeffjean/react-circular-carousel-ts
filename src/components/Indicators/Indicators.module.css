@@ -1,0 +1,25 @@
+@value inactiveColor: rgba(255, 160, 122, 0.73);
+@value: activeColor: coral;
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+  position: absolute;
+  width: 100%;
+}
+
+.wrapper :global span {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: inactiveColor;
+  transition: color 0.2s ease-out;
+}
+
+.wrapper :global span.active {
+  background-color: activeColor;
+}

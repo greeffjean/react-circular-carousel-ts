@@ -1,0 +1,14 @@
+{
+  "name": "react-simple-carousel",
+  "version": "1.0.0",
+  "description": "Strongly typed circular carousel for React",
+  "main": "index.ts",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
