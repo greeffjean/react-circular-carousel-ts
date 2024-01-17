@@ -16,7 +16,7 @@ const CircularCarouselContextWrapper: FC<CircularCarouselContextWrapperProps> = 
     ...rest }) => {
     const [media, setMedia] = useState<MediaProps>(() => ({
         positions: Array.from(Array(mediaPool.length).keys()).map(pos => pos - slideOffset),
-        mediaPool: mediaPool.map(item => ({ ...item, slideUUID: uuid() })),
+        mediaPool: mediaPool.map((item: any) => ({ ...item, slideUUID: uuid() })),
         activeIdx: SLIDE_OFFSET
     }));
     const [action, setAction] = useState<Actions>(Actions.idle);

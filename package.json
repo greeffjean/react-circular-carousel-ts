@@ -2,7 +2,7 @@
   "name": "react-simple-carousel",
   "version": "1.0.0",
   "description": "Strongly typed circular carousel for React",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,5 +10,15 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.4",
+    "@types/react": "^18.2.48"
+  },
+  "dependencies": {
+    "classnames": "^2.5.1",
+    "framer-motion": "^10.18.0",
+    "react": "^18.2.0",
+    "use-debounce": "^10.0.0"
+  }
 }

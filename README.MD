@@ -74,3 +74,10 @@ ___
 **Code Examples**
 
 **Deployed Examples**
+
+
+## Prerequisites 
+
+1. You will need to be running your this package in a Typescript/Node development environment
+2. React needs to be installed
+3. Your development environment needs to support CSS Modules
