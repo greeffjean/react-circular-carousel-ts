@@ -8,7 +8,7 @@ import { Render } from "components/Render";
 import { useCircularCarouselContext } from "context/useContext";
 import { CustomSlideComponent } from "components/Slide/Slide";
 import { Indicators } from "components/Indicators/Indicators";
-import uuid from "react-uuid";
+import { v4 as uuidv4 } from 'uuid';
 import { useWindowWidth } from "@react-hook/window-size/throttled";
 
 
@@ -16,7 +16,7 @@ const HeightSetter: FC<HeightSetterProps> = ({ slideWidth, aspectRatio }) => <di
     style={{ width: slideWidth, aspectRatio: aspectRatio }}>
 </div>;
 
-const CAROUSEL_INNER_CLASS = `c-inner-wrapper-${uuid()}`;
+const CAROUSEL_INNER_CLASS = `c-inner-wrapper-${uuidv4()}`;
 
 const CircularCarousel: FC<CircularCarouselProps> = ({
     slideComponent,

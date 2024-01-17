@@ -1,6 +1,6 @@
 import { FC, createContext, useEffect, useState } from "react";
 import { Actions, CircularCarouseContextProps, CircularCarouselContextWrapperProps, FramerTransitions, MediaProps } from "types";
-import uuid from "react-uuid";
+import { v4 as uuidv4 } from 'uuid';
 
 const Context = createContext({} as CircularCarouseContextProps);
 
@@ -16,7 +16,7 @@ const CircularCarouselContextWrapper: FC<CircularCarouselContextWrapperProps> = 
     ...rest }) => {
     const [media, setMedia] = useState<MediaProps>(() => ({
         positions: Array.from(Array(mediaPool.length).keys()).map(pos => pos - slideOffset),
-        mediaPool: mediaPool.map((item: any) => ({ ...item, slideUUID: uuid() })),
+        mediaPool: mediaPool.map((item: any) => ({ ...item, slideUUID: uuidv4() })),
         activeIdx: SLIDE_OFFSET
     }));
     const [action, setAction] = useState<Actions>(Actions.idle);

@@ -1,5 +1,5 @@
 {
-  "name": "react-simple-carousel",
+  "name": "react-simple-carousel-ts",
   "version": "1.0.0",
   "description": "Strongly typed circular carousel for React",
   "main": "dist/index.js",
@@ -13,12 +13,17 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.11.4",
-    "@types/react": "^18.2.48"
+    "@types/react": "^18.2.48",
+    "@types/uuid": "^9.0.7"
   },
   "dependencies": {
+    "@react-hook/window-size": "^3.1.1",
     "classnames": "^2.5.1",
     "framer-motion": "^10.18.0",
-    "react": "^18.2.0",
-    "use-debounce": "^10.0.0"
+    "use-debounce": "^10.0.0",
+    "uuid": "^9.0.1"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
   }
 }
