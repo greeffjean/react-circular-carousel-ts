@@ -1,12 +1,14 @@
 {
-  "name": "react-simple-carousel-ts",
+  "name": "@simple/react-circular-carousel-ts",
   "version": "1.0.0",
   "description": "Strongly typed circular carousel for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc"
+    "clean": "rm -rf dist/",
+    "build": "yarn clean && tsc && yarn copy-assets",
+    "copy-assets": "cp -R ./src/assets ./dist"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,8 @@
     "@react-hook/window-size": "^3.1.1",
     "classnames": "^2.5.1",
     "framer-motion": "^10.18.0",
+    "typescript": "^5.3.3",
+    "typescript-plugin-css-modules": "^5.0.2",
     "use-debounce": "^10.0.0",
     "uuid": "^9.0.1"
   },

@@ -1,5 +1,5 @@
 import { useCircularCarouselContext } from "context/useContext";
-import styles from "./Indicators.module.css"
+import styles from "assets/css/Indicators.module.css"
 import { useState } from "react";
 import classNames from "classnames";
 

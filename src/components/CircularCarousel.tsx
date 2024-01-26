@@ -1,5 +1,5 @@
 import { CSSProperties, FC, useEffect, useRef } from "react";
-import style from "./CircularCarousel.module.css";
+import style from "assets/css/CircularCarousel.module.css";
 import classNames from "classnames";
 import { motion } from "framer-motion";
 import { Actions, CircularCarouselProps, HeightSetterProps } from "types";
@@ -16,7 +16,7 @@ const HeightSetter: FC<HeightSetterProps> = ({ slideWidth, aspectRatio }) => <di
     style={{ width: slideWidth, aspectRatio: aspectRatio }}>
 </div>;
 
-const CAROUSEL_INNER_CLASS = `c-inner-wrapper-${uuidv4()}`;
+export const CAROUSEL_INNER_CLASS = `c-inner-wrapper-${uuidv4()}`;
 
 const CircularCarousel: FC<CircularCarouselProps> = ({
     slideComponent,

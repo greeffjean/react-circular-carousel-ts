@@ -1,5 +1,5 @@
 import { ControlProps } from "types";
-import styles from "./CircularCarousel.module.css";
+import styles from "assets/css/CircularCarousel.module.css";
 import { motion } from "framer-motion";
 import { useDebouncedCallback } from "use-debounce";
 import classNames from "classnames";
