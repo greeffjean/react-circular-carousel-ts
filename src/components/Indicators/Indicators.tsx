@@ -16,4 +16,4 @@ const Indicators = () => {
     </div>)
 };
 
-export { Indicators };
+export default Indicators;

@@ -1,15 +1,16 @@
-import { CSSProperties, FC, useEffect, useRef } from "react";
+import { CSSProperties, FC, useEffect, useRef, lazy, useState, memo } from "react";
 import style from "assets/css/CircularCarousel.module.css";
 import classNames from "classnames";
 import { motion } from "framer-motion";
 import { Actions, CircularCarouselProps, HeightSetterProps } from "types";
-import { Controls } from "components/Controls";
 import { Render } from "components/Render";
 import { useCircularCarouselContext } from "context/useContext";
 import { CustomSlideComponent } from "components/Slide/Slide";
-import { Indicators } from "components/Indicators/Indicators";
 import { v4 as uuidv4 } from 'uuid';
 import { useWindowWidth } from "@react-hook/window-size/throttled";
+
+const Controls = lazy(() => import("components/Controls"));
+const Indicators = lazy(() => import("components/Indicators/Indicators"));
 
 
 const HeightSetter: FC<HeightSetterProps> = ({ slideWidth, aspectRatio }) => <div
@@ -31,6 +32,7 @@ const CircularCarousel: FC<CircularCarouselProps> = ({
     const windowWidth = useWindowWidth({ fps: 1 });
     const { slideWidth, slideGap, animationType, aspectRatio, handleNext,
         handlePrev, media, isDynamic, innerCarouselWidth, setInnerCarouselWidth } = useCircularCarouselContext();
+    const [SlideComponent] = useState(() => memo(slideComponent ? slideComponent : CustomSlideComponent));
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -48,10 +50,6 @@ const CircularCarousel: FC<CircularCarouselProps> = ({
     if (!media) return null;
 
     const lastItemIndex = media?.positions?.length - 1;
-    const SlideComponent = slideComponent ? slideComponent : CustomSlideComponent;
-
-    const next = () => handleNext ? handleNext() : null;
-    const prev = () => handlePrev ? handlePrev() : null;
 
     return <section
         style={{
@@ -112,8 +110,8 @@ const CircularCarousel: FC<CircularCarouselProps> = ({
         <Render isTruthy={!customControls}>
             <Controls
                 active={action === Actions.idle}
-                handleNext={next}
-                handlePrev={prev}
+                handleNext={handleNext}
+                handlePrev={handlePrev}
             />
         </Render>
 

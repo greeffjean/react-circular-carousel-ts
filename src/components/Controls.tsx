@@ -3,6 +3,7 @@ import styles from "assets/css/CircularCarousel.module.css";
 import { motion } from "framer-motion";
 import { useDebouncedCallback } from "use-debounce";
 import classNames from "classnames";
+import { DEFAULT_DEBOUNCE_VALUE } from "../constants";
 
 const Controls = ({
     handleNext,
@@ -11,10 +12,10 @@ const Controls = ({
 }: ControlProps) => {
 
     const handleChange = (fn: () => void) => {
-        fn();
+        if(fn) fn();
     };
 
-    const debouncedHandleChange = useDebouncedCallback(handleChange, 400);
+    const debouncedHandleChange = useDebouncedCallback(handleChange, DEFAULT_DEBOUNCE_VALUE);
 
     return (
         <div className={classNames(styles.controls, "controls-wrapper")}>
@@ -30,4 +31,4 @@ const Controls = ({
     )
 };
 
-export { Controls };
+export default Controls;
