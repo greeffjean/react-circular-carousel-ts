@@ -27,7 +27,9 @@ const CircularCarousel: FC<CircularCarouselProps> = ({
     action,
     slideClassName,
     slideStyles,
-    indicators = true
+    indicators = true,
+    prevIcon,
+    nextIcon
 }) => {
     const windowWidth = useWindowWidth({ fps: 1 });
     const { slideWidth, slideGap, animationType, aspectRatio, handleNext,
@@ -109,6 +111,8 @@ const CircularCarousel: FC<CircularCarouselProps> = ({
         </Render>
         <Render isTruthy={!customControls}>
             <Controls
+                prevIcon={prevIcon}
+                nextIcon={nextIcon}
                 active={action === Actions.idle}
                 handleNext={handleNext}
                 handlePrev={handlePrev}

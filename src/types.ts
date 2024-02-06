@@ -50,6 +50,12 @@ type CircularCarouseContextProps = {
   isDynamic: boolean;
 };
 
+type ControlInitProps = {
+  nextIcon?: ReactElement;
+  prevIcon?: ReactElement;
+  onChange?: (activeIdx: any) => void;
+};
+
 type CircularCarouselWrapperProps = {
   mediaPool: Record<string, any>[];
   className?: string;
@@ -65,8 +71,7 @@ type CircularCarouselWrapperProps = {
   animationType?: FramerTransitions;
   indicators?: boolean;
   dynamicWidth?: boolean;
-  onChange?: (activeIdx: any) => void;
-};
+} & ControlInitProps;
 
 type CircularCarouselProps = {
   media: MediaProps;
@@ -78,7 +83,9 @@ type ControlProps = {
   handleNext: () => void;
   handlePrev: () => void;
   active: boolean;
-  cb?: () => void
+  cb?: () => void;
+  nextIcon?: ReactElement;
+  prevIcon?: ReactElement;
 };
 
 type CircularCarouselContextWrapperProps = {
