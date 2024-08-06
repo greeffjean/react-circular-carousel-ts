@@ -1,83 +1,239 @@
-# Circular/Infinite Carousel
+# Circular/Infinite React Carousel 🏆
 
-### Features 
+#### Introducing a  production ready, content agnostic, strongly typed, cross device, highly optimized circular carousel for React 🧩.
 
-**Add your own Slide Component**
-**Add your own Slide Controls**
-**Add your own stylesheets**
-**Enable/disable into indicators**
-**Framer Motion Transitions**
-**Hook exports**
-**Conveniently configure your layout with props**
-**On-change event handlers provided**
-**Optimized animations with Framer Motion**
-**Transition based control debounce**
-**Set slide animation**
+#### Features
 
-### Caveats 
-
-This is unfortunately not a mobile friendly package.
+- Enjoy two slick carousel designs
+- Provide your own slide components 
+- Provide your own slide controls (Or use the default provided)
+- Customize your carousel by extending your own styles and classNames
+- Enable/disable carousel indicators
+- Choose from a selection of Framer Motion Transitions
+- Utilize on-change event handlers
+- Enjoy optimized animations (Hardware acceleration) courtesy of Framer Motion
+- Enjoy cross device compatibility ( click or swipe! )
+- Enjoy window resize re-rendering support
+- Benefit from comprehensive type checking during development
+- Compatible in standard JS or TS environments
 
 ### Overview
 
- - `CircularCarouselContextWrapper` is a `context` wrapper that wraps around the `Carousel`, in the event that you would like to use custom controls, you would simply set the value of the `customControls?` prop to `false`, and make use of the supplied `useCircularCarouselContext` hook that exposes `stateGetters and stateSetters` you will need to animate the `Carousel`.
+- This package is simply a thin content agnostic wrapper that wraps around your slides, so that you can focus on creating content, while it handles the rest! 🏖️🥂 
 
- - `CircularCarouselWrapper` return our `Carousel` and initializes our `context` state with a `slideOffset` to be provided.
+### Props:
 
- - `CircularCarousel` is responsible for rendering and animating our slides, this components can also be used in isolation, just mimic what functionality is occurring in `CircularCarouselWrapper` as a tip.
+`type?: CarouselTypes`
+- (optional) Choose a carousel design
+- Export for type enum provided (See exports section)
 
-  ### Accepted Props:
-  **type CircularCarouselWrapperProps**
+`mediaPool: T[]`
+- Collection of slide data
 
-  `mediaPool`: Array of items to be displayed;
-  `className?`: Provide a `className` you would like to give the carousel element;
-  `styles?`: Provide custom css styles;
-  `customControls?`: Display `Carousel` default controls?;
-  `slideWidth?`: Provide the width of each slide;
-  `transition?`: Set the transition time of the slide movement;
-  `slideGap?`: Provide a slide gap in `px`;
-  `carouselBg?`: Provide a carousel background, this prop sets only the `slideGap` ` background`;
-  `slideComponent?`: Provide your own custom slide component;
-  `slideOffset?`: Amount of slide's that will have a negative offset, minimum value of 2 is required for intended UX;
+`className?: string`
+- (optional) Classnames to be added to Carousel container
+
+`styles?: CSSProperties`
+- (optional) Styles to be added to Carousel container
+
+`customControls?: boolean`
+- (optional) Disable/enable default controls
+- When using your own controls, you need to make use of the provided context hooks, see recipes below!
+
+`slideWidth: number`
+- (Not required by 3D carousel)
+- Set width of slides
+- When setting prop `dynamicWidth` = `true`, `slideWidth` becomes a % of the carousel's total width, PS there are fail-safes in place to prevent slides from going over 100%.
 
 
- **type CircularCarouselProps**🧮
+`slideGap?: number`
+- (Not required by 3D carousel)
+- (optional) Determines the gap between slides
 
-  `...CircularCarouselWrapperProps`
-  `handleNext`: Function that handles our click event;
-  `handlePrev`: Function that handles our click event;
-  `media`: Object that contains `mediaPool` & `positions` values;
-  `action`: Current action state, controls the callback functions of our default control buttons, if === `Idle`, that means a UI transition is occurring and click events will be suspended for the this duration, duration === `transition` prop above;
+`slideComponent: FC<T>`
+- React component to be rendered as the slides, which receives `mediaPool` iterables props
+- PS: `mediaPool` list items props schema needs to satisfy `slideComponent` props schema, strict type checking applies, todo for developer!
 
-___
+`slideClassName?: string`
+- (optional) Add a class name to slides
 
-### Layout 
+`slideStyles?: CSSProperties[]`
+- (optional) Styles to be added to slides 
 
-    In order to ensure your carousel layout looks good, the developer needs to ensure at any given time the amount of images is sufficient, and in combination the size of each image is sufficient, the default slide offset is 2, in order of the carousel to display properly and appear infinite, we need to ensure our image size and image count is sufficient, the developer is responsible for ensuring his content and styles are adequate.
+`aspectRatio?: string`
+- (optional) Set aspect ratio of your slides
 
- **TS TIP**: 
-    If you are using your own `CustomSlideComponent` and want to benefit from `TS type checking` use this snippet somewhere in the top level: 
-       `const validateIncomingDataFn = (args: <T>) => args;`
-       `const isDataTypeValid = validateIncomingDataFn(_data); // If there is a type mismatch our runtime-env will throw an error`
+`animationType?: FramerTransitions`
+- (optional) Set Carousel motion transition type ( "tween" | "spring" )
 
-**Whats happening above** ? - 
-1. `validateIncomingDataFn` accepts an `args` argument, **NB** that you set the correct type on `args` because...
-2.  `TS` expects `typeof` `_data` to match type `<T>`( This is the type that the `Functional Component` => `slideComponent` will accept ).
-3. If you are developing in `TS`, I recommend you follow this steps above, as once your  `mediaPool` gets passed to your  `slideComponent` as props, there is no type checking occurring, so you want to prevent any errors early!
+`indicators?: boolean`
+- (optional) Enable/disable indicators
 
-4. Obviously the point is that you can pass in your own `types`, these two lines of code serves as a validation rule and if there is a type mismatch our runtime-env will throw an error
+`dynamicWidth?: boolean`
+- (Not required by 3D carousel)
+- (optional) Set width of slides as a percentage of the Carousel's width
+- When setting prop `dynamicWidth` = `true`, `slideWidth` becomes a percentage of the carousel's total width.
 
-**Customize Tip**
+`touch?: boolean`
+- (optional) Hides built in controls
 
-`CircularCarouselWrapper` is optional, if you would like to customize this component, its key to remember that you need to wrap any of your own code, inside the `CircularCarouselContextWrapper` and make use of the hooks that is provided - `useCircularCarouselContext`, this feature is designed to be customizable therefore all you need is to be able to set and mutate the `context` properly.
+# Exports
+- FramerTransitions
+- CarouselTypes
 
-**Code Examples**
+# Recipes
+
+#### With Custom Controls
+```javascript
+const TILE_WIDTH = Math.floor(window.innerWidth * 0.3);
+
+const CustomControls = () => {
+    const { handleNext, handlePrev } = useCircularCarouselContext();
+    return (
+        <div>
+            <button onClick={handlePrev}>Previous</button>
+            <button onClick={handleNext}>Next</button>
+        </div>
+    )
+};
+
+export const WithCustomControls: Story = {
+    render: () => <Carousel
+        customControls={true}
+        mediaPool={data}
+        slideWidth={TILE_WIDTH}
+        slideGap={50}
+        customControls={true}
+    >
+        <CustomControls />
+    </Carousel>
+};
+```
+
+#### Three Dimensional
+```javascript
+ const ThreeDimensional: Story = {
+    render: () => <Carousel
+        mediaPool={customData}
+        slideWidth={TILE_WIDTH}
+        slideGap={50}
+        type="standard3D"
+        slideComponent={CustomSlideComponent}
+    />
+};
+```
+
+#### With Custom Slide and Indicators Disabled
+```javascript
+const TILE_WIDTH = Math.floor(window.innerWidth * 0.3);
+
+const CustomSlideComponent: FC<CustomSlideComponentProps> = (props) => {
+    return (
+        <div>
+            <img
+                src={props.avatar} alt="avatar for slide" />
+        </div>
+    )
+};
+
+export const WithCustomSlide: Story = {
+    render: () => <Carousel
+        mediaPool={customData}
+        slideWidth={TILE_WIDTH}
+        slideGap={50}
+        slideComponent={CustomSlideComponent}
+        indicators={false}
+    />
+};
+```
+
+#### With Dynamic Slide Width
+```javascript
+const CustomSlideComponent: FC<CustomSlideComponentProps> = (props) => {
+    return (
+        <div>
+            <img
+                src={props.avatar} alt="avatar for slide" />
+        </div>
+    )
+};
+
+export const WithDynamicSlideWidth: Story = {
+    render: () => <Carousel
+        mediaPool={customData}
+        slideWidth={100}
+        dynamicWidth={true}
+        slideGap={50}
+        slideComponent={CustomSlideComponent}
+        aspectRatio='3/1'
+    />
+};
+```
+
+#### Custom Slide Component and Mobile
+```javascript
+const CustomSlideComponent: FC<CustomSlideComponentProps> = (props) => {
+    return (
+        <div>
+            <img
+                src={props.avatar} alt="avatar for slide" />
+        </div>
+    )
+};
+
+export const Mobile: Story = {
+    render: () => 
+        <Carousel
+            mediaPool={customData}
+            slideWidth={100}
+            dynamicWidth={true}
+            slideGap={10}
+            slideComponent={CustomSlideComponent}
+            aspectRatio='3/1'
+            animationType={FramerTransitions.tween}
+            touch
+        />
+};
+```
+#### Custom Slide Component and Mobile with Custom Icons
+```javascript
+const CustomSlideComponent: FC<CustomSlideComponentProps> = (props) => {
+    return (
+        <div>
+            <img
+                src={props.avatar} alt="avatar for slide" />
+        </div>
+    )
+};
+
+export const WithCustomIcons: Story = {
+    render: () => <Carousel
+        mediaPool={customData}
+        slideWidth={100}
+        dynamicWidth={true}
+        slideGap={50}
+        slideComponent={CustomSlideComponent}
+        aspectRatio='3/1'
+        nextIcon={<svg viewBox="0 0 1024 1024" width="20px" height="20px" aria-hidden="true" className="css-1itkjgz e82dnwa0"><path d="M916.266 483.792l-282.834-283.272c-15.594-15.65-40.92-15.692-56.568-0.1-15.648 15.594-15.694 40.92-0.1 56.568l214.838 215.040h-655.412c-22.092 0-40 17.908-40 40s17.908 40 40 40h655l-214.748 214.61c-15.64 15.602-15.672 40.928-0.070 56.568 7.814 7.834 18.066 11.752 28.32 11.75 10.22 0 20.442-3.892 28.25-11.68l283.242-282.93c15.632-15.596 15.67-40.91 0.082-56.554z"></path></svg>}
+        prevIcon={<svg viewBox="0 0 1024 1024" width="20px" height="20px" aria-hidden="true" className="css-1itkjgz e82dnwa0"><path d="M107.854 539.924l282.834 283.272c15.594 15.65 40.92 15.692 56.568 0.1 15.648-15.594 15.694-40.92 0.1-56.568l-214.838-215.040h655.412c22.092 0 40-17.908 40-40s-17.908-40-40-40h-655l214.75-214.61c15.64-15.602 15.672-40.928 0.070-56.568-7.814-7.834-18.066-11.752-28.32-11.75-10.22 0-20.442 3.892-28.25 11.68l-283.242 282.93c-15.634 15.594-15.672 40.91-0.084 56.554z"></path></svg>}
+    />
+};
+```
+
+### Layout
+In order to ensure your carousel layout looks good, the developer needs to ensure at any given time the amount of slides is sufficient; 
+- TIP :moneybag: If your slide count is low, double or triple it with Javascript, and hide the indicators since your slide count will contain duplicates
+- Space gets really tight on mobile, I do not recommend using our 3D carousel on mobile, as it implements a fixed slide sizing algorithm.
+
+### Typescript SuperPowers
+The props `mediaPool` and `slideComponent` are type coupled thanks to TS generics! If you are using this package with TS (recommended!), then you will notice that `mediaPool` list options are matched against `slideComponent` prop types 🎖️
 
 **Deployed Examples**
 
+- [Homepage](https://react-circular-carousel.web.app)
 
-## Prerequisites 
+- [Storybook](https://react-circular-carousel-dev.vercel.app)
 
-1. You will need to be running your this package in a Typescript/Node development environment
-2. React needs to be installed
-3. Your development environment needs to support CSS Modules
+**Feel free to open an issue**
+
+- [Here](https://github.com/greeffjean/react-circular-carousel-ts/issues)

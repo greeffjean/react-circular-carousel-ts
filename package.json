@@ -1,35 +1,34 @@
 {
   "name": "@simple/react-circular-carousel-ts",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "Strongly typed circular carousel for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist/",
-    "build": "yarn clean && tsc && yarn copy-assets",
+    "build": "yarn clean && swc src --out-dir dist && yarn copy-assets",
     "copy-assets": "cp -R ./src/assets ./dist"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "SEE LICENSE IN <root>/license.md",
   "devDependencies": {
     "@types/node": "^20.11.4",
     "@types/react": "^18.2.48",
     "@types/uuid": "^9.0.7"
   },
   "dependencies": {
-    "typescript": "^5.3.3",
-    "typescript-plugin-css-modules": "^5.0.2",
     "@react-hook/window-size": "^3.1.1",
+    "@types/uuid": "^10.0.0",
     "classnames": "^2.3.2",
-    "framer-motion": "^10.16.4",
-    "react-uuid": "^2.0.0",
-    "ts-node": "^10.9.1",
-    "use-debounce": "^10.0.0"
+    "framer-motion": "^11.1.9",
+    "react-callback-after-paint-ts": "^1.1.1",
+    "use-debounce": "^10.0.0",
+    "uuid": "^10.0.0"
   },
   "peerDependencies": {
-    "react": ">=17.0.0",
-    "react-dom":  ">=17.0.0"
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   }
 }
