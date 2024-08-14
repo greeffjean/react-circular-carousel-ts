@@ -1,22 +1,37 @@
 {
   "name": "@simple/react-circular-carousel-ts",
-  "version": "1.0.6",
+  "version": "1.0.15",
   "description": "Strongly typed circular carousel for React",
-  "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "exports": {
+    "./types": {
+      "types": "./dist/types.d.ts"
+    },
+    ".": {
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist/",
     "build": "yarn clean && swc src --out-dir dist && yarn copy-assets",
     "copy-assets": "cp -R ./src/assets ./dist"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "carousel",
+    "circular",
+    "react",
+    "infinite",
+    "typescript"
+  ],
+  "author": "Jean Greeff",
   "license": "SEE LICENSE IN <root>/license.md",
   "devDependencies": {
     "@types/node": "^20.11.4",
     "@types/react": "^18.2.48",
-    "@types/uuid": "^9.0.7"
+    "@types/uuid": "^9.0.7",
+    "tsup": "^8.2.4"
   },
   "dependencies": {
     "@react-hook/window-size": "^3.1.1",
