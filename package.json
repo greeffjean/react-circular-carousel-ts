@@ -1,12 +1,13 @@
 {
   "name": "@simple/react-circular-carousel-ts",
-  "version": "1.0.15",
+  "version": "1.0.25",
   "description": "Strongly typed circular carousel for React",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "exports": {
     "./types": {
-      "types": "./dist/types.d.ts"
+      "types": "./dist/types.d.ts",
+      "default": "./dist/types.js"
     },
     ".": {
       "default": "./dist/index.js"
@@ -30,8 +31,7 @@
   "devDependencies": {
     "@types/node": "^20.11.4",
     "@types/react": "^18.2.48",
-    "@types/uuid": "^9.0.7",
-    "tsup": "^8.2.4"
+    "@types/uuid": "^9.0.7"
   },
   "dependencies": {
     "@react-hook/window-size": "^3.1.1",
