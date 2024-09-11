@@ -1,16 +1,15 @@
 {
-  "name": "@simple/react-circular-carousel-ts",
-  "version": "1.0.0",
+  "name": "react-circular-carousel-ts",
+  "version": "1.1.0",
   "description": "Strongly typed circular carousel for React",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
-  "private": true,
   "homepage": "https://react-circular-carousel.web.app",
   "engines": {
     "node": ">= 16.0.0"
   },
   "repository": {
-    "url": "https://github.com/greeffjean/react-circular-carousel-ts"
+    "url": "https://github.com/greeffjean/react-circular-carousel-ts.git"
   },
   "bugs": {
     "url": "https://github.com/greeffjean/react-circular-carousel-ts-public/issues"
@@ -38,11 +37,10 @@
     "typescript"
   ],
   "author": "Jean Greeff <greeffjean@gmail.com>",
-  "license": "SEE LICENSE IN <root>/license.md",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.4",
-    "@types/react": "^18.2.48",
-    "@types/uuid": "^9.0.7"
+    "@types/react": "^18.2.48"
   },
   "dependencies": {
     "@react-hook/window-size": "^3.1.1",
