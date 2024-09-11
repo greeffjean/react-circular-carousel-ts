@@ -1,0 +1,27 @@
+@value inactiveColor: rgba(255, 160, 122, 0.73);
+@value: activeColor: rgb(136, 98, 163);
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+  align-items: center;
+  width: 100%;
+}
+
+.wrapper :global span {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2.5px solid grey;
+  scale: 1;
+  transition: all 0.2s ease-out;
+}
+
+.wrapper :global span.active {
+  scale: 0.9;
+  border: 2.5px solid rgb(190, 149, 219);
+}
