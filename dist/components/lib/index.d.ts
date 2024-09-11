@@ -9,8 +9,6 @@ type HandleTouchEndProps = {
 /**
  * Touch handler for moving slides along the X-axis
  * 1. Determine if swipe is left or right
- * 2. Determine the amount of px swiped
- * 3. Set a limit on swipe
  *
  * @param e Touch Event - TouchEvent
  * @param touchStart variable - Maybe<number>
