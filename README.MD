@@ -1,7 +1,9 @@
-<h1>Strongly typed circular carousel for React <button style="background: coral; border: none; border-radius: 10px; padding: 5px 10px;">
+<h1>Strongly typed circular carousel for React </h1> <button style="background: coral; border: none; border-radius: 10px; padding: 5px 10px;">
 <a style="color: white;" href="https://buymeacoffee.com/jean_greeff">
 Buy me a coffee
-</a></button></h1> 
+</a></button>
+</br>
+</br>
 <span>Introducing a production ready, content agnostic, strongly typed, cross device, highly optimized circular carousel for React 🧩.</span>
 
 ---
