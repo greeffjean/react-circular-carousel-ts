@@ -1,13 +1,8 @@
-<h1>Strongly typed circular carousel for React</h1> 
-<span>Introducing a production ready, content agnostic, strongly typed, cross device, highly optimized circular carousel for React 🧩.</span>
-<br />
-<br/>
-<button style="background: coral; border: none; border-radius: 10px; padding: 5px 10px;">
+<h1>Strongly typed circular carousel for React <button style="background: coral; border: none; border-radius: 10px; padding: 5px 10px;">
 <a style="color: white;" href="https://buymeacoffee.com/jean_greeff">
 Buy me a coffee
-</a></button>
-<br />
-<br/>
+</a></button></h1> 
+<span>Introducing a production ready, content agnostic, strongly typed, cross device, highly optimized circular carousel for React 🧩.</span>
 
 ---
 #### Table of contents
@@ -594,6 +589,10 @@ Props `mediaPool` and `slideComponent` are type coupled thanks to TS generics! I
  <div className="about">
       <h2>Hi my name is Jean! </h2>
       <p>If you would like to know more about me please check out these links.</p>  
+      <p>If you would like to see me add more features and spend more time on this project please <button style="background: coral; border: none; border-radius: 10px; padding: 5px 10px;">
+<a style="color: white;" href="https://buymeacoffee.com/jean_greeff">
+Buy me a coffee
+</a></button> </p>
       <div>
         <a style="display: block" href="https://github.com/greeffjean">Github</a>
         <a style="display: block" href="https://za.linkedin.com/in/jean-greeff-939732139?challengeId=AQFipxVlrt5QKgAAAZGotaAdoctY8by8OiaDx3YNJeRB3SyzK8wx9-2OoYIcLvbRm_3lGDollWedJX8u9VySz-SVoXW13A-a0A&submissionId=4bf4de49-8dd4-f017-9bf3-cc07879a2831&challengeSource=AgGmkUVpsV70EwAAAZGotahEw11DZHW12_ECYOSOMY48HbmBIL3cI_TWrphsb2c&challegeType=AgHuLQ-isW_3kQAAAZGotahIDpyMH19YSD6nFnHSf4PqQEx5pmuBYDQ&memberId=AgE_qht-Y7ia6gAAAZGotahMmNJlT-Q1WJg8kJoSHSCX1Mo&recognizeDevice=AgFtT_iQ0OShigAAAZGotahPAp6hglBqb-lCcLfI9xKWcoj7mSvo">Linked-in</a>
