@@ -1,4 +1,3 @@
-const SLIDE_LIMIT = window.innerWidth;
 /**
  * Get swipe direction
  * @param touchState - GetDirectionReturn
@@ -8,16 +7,13 @@ const getDirection = (touchState) => {
     if (touchStart && clientX)
         return {
             next: touchStart > clientX,
-            previous: touchStart < clientX,
-            touchDiff: touchStart > clientX ? touchStart - clientX : touchStart + clientX,
+            previous: touchStart < clientX
         };
-    return { next: undefined, previous: undefined, touchDiff: 0 };
+    return { next: undefined, previous: undefined };
 };
 /**
  * Touch handler for moving slides along the X-axis
  * 1. Determine if swipe is left or right
- * 2. Determine the amount of px swiped
- * 3. Set a limit on swipe
  *
  * @param e Touch Event - TouchEvent
  * @param touchStart variable - Maybe<number>
@@ -25,9 +21,6 @@ const getDirection = (touchState) => {
  */
 const handleTouchMove = (e, touchStart, setTouchStart) => {
     const clientX = e.changedTouches[0].clientX;
-    const { touchDiff } = getDirection({ touchStart, clientX });
-    if (touchDiff && touchDiff >= SLIDE_LIMIT)
-        return;
     if (!touchStart) {
         setTouchStart(clientX);
     }
