@@ -1,6 +1,15 @@
 <h1>Strongly typed circular carousel for React</h1> 
 <span>Introducing a production ready, content agnostic, strongly typed, cross device, highly optimized circular carousel for React 🧩.</span>
+<br />
+<br/>
+<button style="background: coral; border: none; border-radius: 10px; padding: 5px 10px;">
+<a style="color: white;" href="https://buymeacoffee.com/jean_greeff">
+Buy me a coffee
+</a></button>
+<br />
+<br/>
 
+---
 #### Table of contents
 
 - :dart: Installation
@@ -53,7 +62,7 @@
 
 - [Homepage](https://react-circular-carousel.web.app)
 
-- [Storybook](https://react-circular-carousel-dev.vercel.app)
+- [Storybook](https://react-circular-carousel-sb.web.app/?path=/story/circularcarousel-standard--default)
 
 ---
 
@@ -381,6 +390,7 @@ import { useCircularCarouselContext } from "react-circular-carousel-ts";
 # Framework Usage
 
 ### Next.js
+`In future iterations there will be SSR compatibility`
 
 ```
 // Your page

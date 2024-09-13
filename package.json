@@ -14,6 +14,10 @@
   "bugs": {
     "url": "https://github.com/greeffjean/react-circular-carousel-ts-public/issues"
   },
+  "funding": {
+    "type": "buy-me-coffee",
+    "url": "https://buymeacoffee.com/jean_greeff"
+  },
   "exports": {
     "./types": {
       "types": "./dist/types.d.ts",
